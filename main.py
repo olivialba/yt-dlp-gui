@@ -11,7 +11,6 @@ dpg.create_viewport(title='Request Checker', small_icon='src/img/small.ico', lar
 with dpg.font_registry():
     default_font = dpg.add_font("src/font/Roboto-Regular.ttf", 20)
     dpg.add_font("src/font/Roboto-Medium.ttf", 20)
-    dpg.add_font("src/font/Roboto-Light.ttf", 20)
 dpg.bind_font(default_font)
 
 # MAIN WINDOW

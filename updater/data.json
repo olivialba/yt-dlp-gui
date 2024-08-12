@@ -1,0 +1,25 @@
+{
+    "github": {
+        "title": "yt-dlp-gui",
+        "author": "olivialba",
+        "zip": "https://github.com/olivialba/yt-dlp-gui/archive/refs/heads/main.zip",
+        "link": "https://github.com/olivialba/yt-dlp-gui/blob/main/",
+        "raw_link": "https://raw.githubusercontent.com/olivialba/yt-dlp-gui/main/"
+    },
+    "content": {
+        "folders": 
+        [
+            "src", 
+                "src/font", 
+                "src/img", 
+                "src/utils.py"
+        ],
+        "files": [
+            "main.py",
+            "src/font/Roboto-Medium.ttf", 
+            "src/font/Roboto-Regular.ttf",
+            "src/img/large.ico",
+            "src/img/small.ico"
+        ]
+    }
+}
