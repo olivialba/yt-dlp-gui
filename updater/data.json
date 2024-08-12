@@ -23,8 +23,14 @@
             "src/img/small.ico"
         ]
     },
-    "to_update": 
-    [
-        "src/font/Roboto-Regular.ttf"
-    ]
+    "to_update": {
+        "folders":
+        [
+            
+        ],
+        "files":
+        [
+            "src/font/Roboto-Regular.ttf"
+        ]
+    }
 }
