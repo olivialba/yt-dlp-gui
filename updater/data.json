@@ -1,5 +1,5 @@
 {
-    "version": 0.2,
+    "version": 0.1,
     "github": {
         "title": "yt-dlp-gui",
         "author": "olivialba",
@@ -12,11 +12,11 @@
         [
             "src", 
                 "src/font", 
-                "src/img", 
-                "src/utils.py"
+                "src/img"
         ],
         "files": [
             "main.py",
+            "src/utils.py",
             "src/font/Roboto-Medium.ttf", 
             "src/font/Roboto-Regular.ttf",
             "src/img/large.ico",
