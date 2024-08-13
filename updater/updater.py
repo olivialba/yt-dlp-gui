@@ -143,16 +143,11 @@ def UPDATER_START():
     if old_version == new_version:
         print("No new update found..")
         return False
-    
-    elif (old_version + 0.1) == new_version:
+    elif (old_version + 0.1) <= new_version:
         print('Update starting...')
         status = normal_update(new_data, old_data)
-    elif (old_version + 0.1) < new_version:
-        print('Program is two versions old. Downloading latest files...')
-    else:
-        print('Error found with version. Downloading latest files...')
     
-    if status is not False and status is not None:
+    if status is True:
         print("Updating successful!")
         with open(DATA_JSON, 'w') as file:
             json.dump(new_data, file, indent=4)

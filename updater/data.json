@@ -1,5 +1,5 @@
 {
-    "version": 0.3,
+    "version": 0.4,
     "github": {
         "title": "yt-dlp-gui",
         "author": "olivialba",
@@ -11,7 +11,8 @@
         "folders": [
             "src",
             "src/font",
-            "src/img"
+            "src/img",
+            "updater"
         ],
         "files": [
             "main.py",
@@ -24,6 +25,9 @@
     },
     "to_update": {
         "folders": [],
-        "files": []
+        "files": [
+            "main.py",
+            "src/utils.py"
+        ]
     }
 }
