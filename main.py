@@ -1,16 +1,14 @@
 import dearpygui.dearpygui as dpg
-import dearpygui.demo as demo
 from src.utils import *
-import os
 
 
 dpg.create_context()
-dpg.create_viewport(title='Request Checker', small_icon='src/img/small.ico', large_icon='src/img/large.ico', 
-                    height=700, width=1000)
+dpg.create_viewport(title='Request Checker', small_icon='src/data/img/small.ico', large_icon='src/data/img/large.ico', 
+                    height=750, width=1000)
 
 with dpg.font_registry():
-    default_font = dpg.add_font("src/font/Roboto-Regular.ttf", 20)
-    dpg.add_font("src/font/Roboto-Medium.ttf", 20)
+    default_font = dpg.add_font("src/data/font/Roboto-Regular.ttf", 20)
+    dpg.add_font("src/data/font/Roboto-Medium.ttf", 20)
 dpg.bind_font(default_font)
 
 # MAIN WINDOW
@@ -32,11 +30,11 @@ with dpg.window(tag="main_window"):
                         with dpg.group(indent=10):
                             space(10)
                             with dpg.group(horizontal=True):
-                                dpg.add_text("VIDEO LINK: ")
-                                dpg.add_input_text(hint='Input Request URL', tag='request_url', width=-1)
+                                dpg.add_text("Video Link: ")
+                                dpg.add_input_text(hint='Input Youtube URL', tag='request_url', width=-1)
 
                         space(20)
-                        dpg.add_button(label='Check Link For Video', tag='send_request_button', callback=send_request, width=-1, height=30)
+                        dpg.add_button(label='Search Video', tag='send_request_button', callback=send_request, width=-1, height=30)
                         space(20)
 
         # Second ROW
@@ -53,7 +51,7 @@ with dpg.window(tag="main_window"):
                         dpg.add_text('', tag='request_download_progress', show=False)
                         dpg.add_text('', tag='request_download_speed', show=False)
                         dpg.add_text('', tag='request_download_elapsed', show=False)
-                        setLog("Inserisci un YouTube link per iniziare..")
+                        setLog("Waiting for a YouTube link..")
                 with dpg.table_row():
                     pass
 
@@ -84,8 +82,6 @@ with dpg.window(tag="main_window"):
                             space(5)
                             
                 
-                
-#demo.show_demo()
 
 # Setup
 dpg.setup_dearpygui()

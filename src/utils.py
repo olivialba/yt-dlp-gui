@@ -9,11 +9,11 @@ USER_AGENT = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTM
 
 
 class Logs():
-    INVALID = 'Video link invalido!'
-    SEARCHING = 'Stiamo cercando il video.. Aspetta...'
-    FOUND = 'Video trovato!'
-    DOWNLOADING = 'Stiamo scaricando il tuo video..'
-    DOWNLOAD_FINISHED = 'Video scaricato!'
+    INVALID = 'Invalid Video Link!'
+    SEARCHING = 'We are looking for you video.. Wait...'
+    FOUND = 'Video found!'
+    DOWNLOADING = 'Your video is being downloaded'
+    DOWNLOAD_FINISHED = 'Video downloaded!'
 
 
 ####### GUI #######
