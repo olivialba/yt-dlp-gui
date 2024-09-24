@@ -1,0 +1,4 @@
+dearpygui>=1.11.1
+yt-dlp>=2024.8.6
+numpy>=2.1.1
+Pillow>=10.4.0
