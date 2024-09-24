@@ -19,15 +19,19 @@ class Logs():
 ####### GUI #######
 
 def setLog(text: str):
-    dpg.set_value('request_response', addEmptySpaceToText(text))
+    row_width = dpg.get_item_width('response_row')
+    size = dpg.get_text_size(text, font='default_font')
+    start_p = 195
+    if size and size[0] != 0:
+        width = size[0]
+        start_p = (((row_width) / 2) - (width / 2)) - 6
+    if dpg.does_item_exist('request_response_spacer'):
+        dpg.delete_item('request_response_spacer')
+    dpg.add_spacer(width=start_p, before='request_response', parent='response_space', tag='request_response_spacer')
+    dpg.set_value('request_response', text)
 
 def getLog():
     return dpg.get_value('request_response')
-
-def addEmptySpaceToText(text: str):
-    length = len(text)
-    spaces = " " * (75 - length)
-    return spaces + text
 
 # Add space in GUI
 def space(height: int):
@@ -58,7 +62,7 @@ def send_request():
         dpg.set_value('request_author', f"Author: {info['uploader']}")
         # Video Length
         dpg.show_item('request_length')
-        dpg.set_value('request_length', f"Duration: {info['duration_string']}")
+        dpg.set_value('request_length', f"Duration: {info.get('duration_string', 'Unknown')}")
         # Video Thumbnail
         dpg.show_item('request_quality_title')
         dpg.show_item('request_quality')
@@ -82,8 +86,8 @@ def send_request():
         setLog(Logs.FOUND)
         
     except Exception as e:
-        setLog("Errore: Il link che hai dato non corrisponde a nessun video. Errore nel recupero delle informazioni.")
-        print(e)
+        setLog("Error: We couldn't find the video on YouTube. Please check the link again.")
+        print("Error", e)
         return None
     finally:
         dpg.enable_item('send_request_button')

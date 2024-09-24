@@ -7,7 +7,7 @@ dpg.create_viewport(title='Request Checker', small_icon='src/data/img/small.ico'
                     height=750, width=1000)
 
 with dpg.font_registry():
-    default_font = dpg.add_font("src/data/font/Roboto-Regular.ttf", 20)
+    default_font = dpg.add_font("src/data/font/Roboto-Regular.ttf", 20, tag='default_font')
     dpg.add_font("src/data/font/Roboto-Medium.ttf", 20)
 dpg.bind_font(default_font)
 
@@ -42,12 +42,13 @@ with dpg.window(tag="main_window"):
             with dpg.table(header_row=False, borders_innerH=False, borders_innerV=True, 
                         borders_outerH=False, borders_outerV=False, resizable=False):
                 dpg.add_table_column()
-                dpg.add_table_column(width_fixed=True, init_width_or_weight=600)
+                dpg.add_table_column(width_fixed=True, init_width_or_weight=600, width=600,tag='response_row')
                 dpg.add_table_column()
                 with dpg.table_row():
                     space(0)
                     with dpg.group():
-                        dpg.add_text('', tag='request_response', wrap=565, indent=20)
+                        with dpg.group(horizontal=True, parent="response_space"):
+                            dpg.add_text('', tag='request_response', wrap=565)
                         dpg.add_text('', tag='request_download_progress', show=False)
                         dpg.add_text('', tag='request_download_speed', show=False)
                         dpg.add_text('', tag='request_download_elapsed', show=False)
@@ -88,4 +89,5 @@ dpg.setup_dearpygui()
 dpg.show_viewport()
 dpg.set_primary_window("main_window", True)
 dpg.start_dearpygui()
+setLog("Waiting for a YouTube link..")
 dpg.destroy_context()
