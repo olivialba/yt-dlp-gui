@@ -24,7 +24,7 @@ def setLog(text: str):
     start_p = 195
     if size and size[0] != 0:
         width = size[0]
-        start_p = (((row_width) / 2) - (width / 2)) - 6
+        start_p = (((row_width) / 2) - (width / 2)) - 8
     if dpg.does_item_exist('request_response_spacer'):
         dpg.delete_item('request_response_spacer')
     dpg.add_spacer(width=start_p, before='request_response', parent='response_space', tag='request_response_spacer')
