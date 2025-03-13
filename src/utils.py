@@ -62,7 +62,15 @@ def send_request():
         dpg.set_value('request_author', f"Author: {info['uploader']}")
         # Video Length
         dpg.show_item('request_length')
-        dpg.set_value('request_length', f"Duration: {info.get('duration_string', 'Unknown')}")
+        duration = info.get('duration', None)
+        if duration is not None:
+            hours = duration // 3600
+            minutes = (duration % 3600) // 60
+            seconds = duration % 60
+            duration = f"{hours}h {minutes}m {seconds}s" if hours else f"{minutes}m {seconds}s" if minutes else f"{seconds}s"
+        else:
+            duration = "Unknown"
+        dpg.set_value('request_length', f"Duration: {duration}")
         # Video Thumbnail
         dpg.show_item('request_quality_title')
         dpg.show_item('request_quality')
