@@ -63,13 +63,7 @@ def send_request():
         # Video Length
         dpg.show_item('request_length')
         duration = info.get('duration', None)
-        if duration is not None:
-            hours = duration // 3600
-            minutes = (duration % 3600) // 60
-            seconds = duration % 60
-            duration = f"{hours}h {minutes}m {seconds}s" if hours else f"{minutes}m {seconds}s" if minutes else f"{seconds}s"
-        else:
-            duration = "Unknown"
+        duration = get_video_duration(info)
         dpg.set_value('request_length', f"Duration: {duration}")
         # Video Thumbnail
         dpg.show_item('request_quality_title')
@@ -99,7 +93,18 @@ def send_request():
         return None
     finally:
         dpg.enable_item('send_request_button')
-        
+
+def get_video_duration(info: dict):
+    duration = info.get('duration', None)
+    if duration is not None:
+        hours = duration // 3600
+        minutes = (duration % 3600) // 60
+        seconds = duration % 60
+        duration = f"{hours}h {minutes}m {seconds}s" if hours else f"{minutes}m {seconds}s" if minutes else f"{seconds}s"
+    else:
+        duration = "Unknown"
+    return duration
+
 def getVideoInfos(URL):
     """
     Checks if the url link corresponds to a video.
