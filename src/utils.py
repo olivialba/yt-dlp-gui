@@ -207,7 +207,8 @@ def progress_hook(data):
         percentage = (data['downloaded_bytes'] / total_bytes) * 100
         dpg.set_value('request_download_progress', f"Download Percentage: {percentage:.2f}%")
 
-        speed_mbps = data.get('speed', 1) / (1024 * 1024)
+        speed = data.get('speed')
+        speed_mbps = (speed if speed is not None else 1) / (1024 * 1024)
         dpg.set_value('request_download_speed', f"Download Speed: {speed_mbps:.2f} MB/s")
         
         elapsed_minutes = data.get('elapsed', 1) / 60
